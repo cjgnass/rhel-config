@@ -20,15 +20,12 @@ sudo dnf install -y \
 
 # Neovim
 sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
-chmod +x nvim-linux-x86_64.appimage
-sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
-cd /tmp
-sudo nvim --appimage-extract
+sudo chmod +x nvim-linux-x86_64.appimage
+sudo ./nvim-linux-x86_64.appimage --appimage-extract
 sudo mv squashfs-root /opt/nvim
 sudo ln -sf /opt/nvim/usr/bin/nvim /usr/local/bin/nvim
 
 # Node.js (via dnf module)
-sudo dnf module enable -y nodejs:20
 sudo dnf install -y nodejs
 
 # .NET SDK
@@ -46,6 +43,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 git clone https://github.com/cjgnass/nvim-config.git ~/.config/nvim
 
-git clone https://github.com/cjgnass/tmux-config.git && mv tmux-config/.tmux.conf . && rm -rf tmux-config
+git clone https://github.com/cjgnass/tmux-config.git && mv tmux-config/.tmux.conf .tmux.conf && rm -rf tmux-config
 
 echo "Done!"
