@@ -22,6 +22,7 @@ sudo dnf install -y \
 sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
 sudo chmod +x nvim-linux-x86_64.appimage
 sudo ./nvim-linux-x86_64.appimage --appimage-extract
+sudo rm nvim-linux-x86_64.appimage
 sudo mv squashfs-root /opt/nvim
 sudo ln -sf /opt/nvim/usr/bin/nvim /usr/local/bin/nvim
 
@@ -41,8 +42,17 @@ sudo usermod -aG docker "$USER"
 # uv (Python package manager)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+# NVIM config
 git clone https://github.com/cjgnass/nvim-config.git ~/.config/nvim
 
+# TMUX config
 git clone https://github.com/cjgnass/tmux-config.git && mv tmux-config/.tmux.conf .tmux.conf && rm -rf tmux-config
+
+# GitHub CLI 
+sudo dnf install -y 'dnf-command(config-manager)'
+sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf install -y gh
+
+cd ~
 
 echo "Done!"
