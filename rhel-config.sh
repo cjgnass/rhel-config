@@ -6,14 +6,11 @@ echo "Starting setup..."
 # Update system
 sudo dnf update -y  # or apt, yum, etc.
 
-# Enable EPEL for packages like neovim
-sudo dnf install -y epel-release
 
 # Install packages
 sudo dnf install -y \
   curl \
   tmux \
-  neovim \
   python3 \
   python3-pip \
   python3-devel \
@@ -21,6 +18,10 @@ sudo dnf install -y \
   gcc-c++ \
   gdb \
   java-21-openjdk-devel
+
+# Neovim
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+yum install -y neovim python3-neovim
 
 # Node.js (via dnf module)
 sudo dnf module enable -y nodejs:20
