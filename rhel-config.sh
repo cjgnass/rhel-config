@@ -20,8 +20,8 @@ sudo dnf install -y \
   java-21-openjdk-devel
 
 # Neovim
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-yum install -y neovim python3-neovim
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo yum install -y neovim python3-neovim
 
 # Node.js (via dnf module)
 sudo dnf module enable -y nodejs:20
