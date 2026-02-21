@@ -6,9 +6,9 @@ echo "Starting setup..."
 # Update system
 sudo dnf update -y  # or apt, yum, etc.
 
-
 # Install packages
 sudo dnf install -y \
+  git \
   curl \
   tmux \
   python3 \
@@ -20,8 +20,13 @@ sudo dnf install -y \
   java-21-openjdk-devel
 
 # Neovim
-sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo yum install -y neovim python3-neovim
+sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+chmod +x nvim-linux-x86_64.appimage
+sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
+cd /tmp
+sudo nvim --appimage-extract
+sudo mv squashfs-root /opt/nvim
+sudo ln -sf /opt/nvim/usr/bin/nvim /usr/local/bin/nvim
 
 # Node.js (via dnf module)
 sudo dnf module enable -y nodejs:20
