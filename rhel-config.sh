@@ -46,12 +46,18 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 git clone https://github.com/cjgnass/nvim-config.git ~/.config/nvim
 
 # TMUX config
-git clone https://github.com/cjgnass/tmux-config.git && mv tmux-config/.tmux.conf .tmux.conf && rm -rf tmux-config
+git clone https://github.com/cjgnass/tmux-config.git && mv tmux-config/.tmux.conf ~/.tmux.conf && rm -rf tmux-config
 
 # GitHub CLI 
 sudo dnf install -y 'dnf-command(config-manager)'
 sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 sudo dnf install -y gh
+
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+source ~/.bashrc
 
 cd ~
 
