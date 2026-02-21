@@ -8,7 +8,6 @@ sudo dnf update -y  # or apt, yum, etc.
 
 # Install packages
 sudo dnf install -y \
-  git \
   curl \
   tmux \
   python3 \
