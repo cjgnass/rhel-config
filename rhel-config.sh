@@ -6,11 +6,14 @@ echo "Starting setup..."
 # Update system
 sudo dnf update -y  # or apt, yum, etc.
 
+# Enable EPEL for packages like neovim
+sudo dnf install -y epel-release
+
 # Install packages
 sudo dnf install -y \
   curl \
   tmux \
-  nvim \
+  neovim \
   python3 \
   python3-pip \
   python3-devel \
